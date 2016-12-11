@@ -92,7 +92,18 @@
                           console.log(xhr, resp, text);
                       }
                     })
-	            })
+	            }),
+		$(function() {
+		$("input[@name='phoneNumber']").keyup(function() {
+		var numberLength = this.value.length;
+		var numberValue = $(this).val();
+		if (numberLength == 3) {
+			$("input[@name='phoneNumber']").val("(" + numberValue + ")" + "-");
+		} else if (numberLength == 9) {
+			$("input[@name='phoneNumber']").val(numberValue + "-");
+		}
+	});
+});
 	        });
         </script>
 
